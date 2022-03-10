@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pure_flutter_animation/ui/animated_opacity_screen.dart';
+import 'package:pure_flutter_animation/ui/drawer_animation_screen.dart';
 import 'package:pure_flutter_animation/utils/nav_helper.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   var screens = {
     "Animated Opacity": const AnimatedOpacityScreen(),
+    "Drawer Animation": const DrawerAnimationScreen(),
   };
 
   @override
