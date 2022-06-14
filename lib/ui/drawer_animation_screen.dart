@@ -33,10 +33,16 @@ class _DrawerAnimationScreenState extends State<DrawerAnimationScreen>
           double bodyScale = 1 - (0.2 * animationController.value);
           double drawerPeekY =
               (screenSize.height - (bodyScale * screenSize.height)) / 2;
+          double statusBarHeight = MediaQuery.of(context).viewPadding.top;
 
           return Stack(
             children: [
-              Container(color: Colors.blue),
+              GestureDetector(
+                onTap: () {
+                  animationController.reverse();
+                },
+                child: Container(color: Colors.blue),
+              ),
               Transform(
                 transform: Matrix4.identity()
                   ..translate(drawerPeekX, drawerPeekY)
@@ -50,7 +56,7 @@ class _DrawerAnimationScreenState extends State<DrawerAnimationScreen>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Container(
-                        margin: const EdgeInsets.only(top: 24),
+                        margin: EdgeInsets.only(top: statusBarHeight),
                         child: IconButton(
                           onPressed: () {
                             if (animationController.value == 0) {
