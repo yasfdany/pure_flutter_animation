@@ -36,22 +36,22 @@ class _AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
         ],
       ),
       body: Center(
-        child: AnimatedContainer(
-          width: _size,
-          height: _size,
-          duration: const Duration(milliseconds: 300),
-          decoration: BoxDecoration(
-            color: _color,
-            borderRadius: BorderRadius.circular(_radius),
-          ),
-          child: GestureDetector(
-            onTap: () {
-              setState(() {
-                _size = 200;
-                _radius = 200 / 2;
-                _color = Colors.yellow;
-              });
-            },
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              _size = 200;
+              _radius = 200 / 2;
+              _color = Colors.yellow;
+            });
+          },
+          child: AnimatedContainer(
+            width: _size,
+            height: _size,
+            duration: const Duration(milliseconds: 300),
+            decoration: BoxDecoration(
+              color: _color,
+              borderRadius: BorderRadius.circular(_radius),
+            ),
           ),
         ),
       ),

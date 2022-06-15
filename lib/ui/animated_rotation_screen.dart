@@ -31,19 +31,19 @@ class _AnimatedRotationScreenState extends State<AnimatedRotationScreen> {
         ],
       ),
       body: Center(
-        child: AnimatedRotation(
-          duration: const Duration(milliseconds: 300),
-          turns: _turns,
-          child: Container(
-            color: Colors.red,
-            width: 200,
-            height: 200,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  _turns = 45 / 360;
-                });
-              },
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              _turns = 45 / 360;
+            });
+          },
+          child: AnimatedRotation(
+            turns: _turns,
+            duration: const Duration(milliseconds: 300),
+            child: Container(
+              color: Colors.red,
+              width: 200,
+              height: 200,
             ),
           ),
         ),

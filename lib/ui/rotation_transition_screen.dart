@@ -16,7 +16,7 @@ class _RotationTransitionScreenState extends State<RotationTransitionScreen>
   void initState() {
     super.initState();
     _animationController = AnimationController(
-      duration: const Duration(seconds: 10),
+      duration: const Duration(seconds: 30),
       vsync: this,
     )..repeat();
   }
@@ -34,7 +34,7 @@ class _RotationTransitionScreenState extends State<RotationTransitionScreen>
         width: double.infinity,
         height: double.infinity,
         color: const Color(0xff0c1117),
-        child: Align(
+        child: Center(
           child: RotationTransition(
             turns: _animationController,
             alignment: Alignment.center,
