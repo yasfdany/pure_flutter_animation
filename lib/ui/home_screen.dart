@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pure_flutter_animation/ui/animated_container_screen.dart';
 import 'package:pure_flutter_animation/ui/animated_opacity_screen.dart';
+import 'package:pure_flutter_animation/ui/animated_rotation_screen.dart';
 import 'package:pure_flutter_animation/ui/drawer_animation_screen.dart';
 import 'package:pure_flutter_animation/utils/nav_helper.dart';
 
@@ -15,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   var screens = {
     "Animated Opacity": const AnimatedOpacityScreen(),
     "Animated Container": const AnimatedContainerScreen(),
+    "Animated Rotation": const AnimatedRotationScreen(),
     "Drawer Animation": const DrawerAnimationScreen(),
   };
 
