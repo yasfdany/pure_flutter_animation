@@ -31,6 +31,12 @@ class _DrawerAnimationScreenState extends State<DrawerAnimationScreen>
   }
 
   @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
 
