@@ -9,15 +9,25 @@ class DrawerAnimationScreen extends StatefulWidget {
 
 class _DrawerAnimationScreenState extends State<DrawerAnimationScreen>
     with SingleTickerProviderStateMixin {
-  late AnimationController animationController;
+  late AnimationController _animationController;
+  // late Animation<double> _curvedAnimation;
 
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(
+    _animationController = AnimationController(
       duration: const Duration(milliseconds: 200),
       vsync: this,
     );
+    // _curvedAnimation = Tween(
+    //   begin: _animationController.lowerBound,
+    //   end: _animationController.upperBound,
+    // ).animate(
+    //   CurvedAnimation(
+    //     parent: _animationController,
+    //     curve: Curves.linear,
+    //   ),
+    // );
   }
 
   @override
@@ -26,11 +36,12 @@ class _DrawerAnimationScreenState extends State<DrawerAnimationScreen>
 
     return Scaffold(
       body: AnimatedBuilder(
-        animation: animationController,
+        animation: _animationController,
         builder: (context, _) {
-          double drawerPeekX =
-              animationController.value * (screenSize.width / 2.8);
-          double bodyScale = 1 - (0.2 * animationController.value);
+          double value = _animationController.value;
+
+          double drawerPeekX = value * (screenSize.width / 2.8);
+          double bodyScale = 1 - (0.2 * value);
           double drawerPeekY =
               (screenSize.height - (bodyScale * screenSize.height)) / 2;
           double statusBarHeight = MediaQuery.of(context).viewPadding.top;
@@ -39,7 +50,7 @@ class _DrawerAnimationScreenState extends State<DrawerAnimationScreen>
             children: [
               GestureDetector(
                 onTap: () {
-                  animationController.reverse();
+                  _animationController.reverse();
                 },
                 child: Container(color: Colors.blue),
               ),
@@ -59,10 +70,10 @@ class _DrawerAnimationScreenState extends State<DrawerAnimationScreen>
                         margin: EdgeInsets.only(top: statusBarHeight),
                         child: IconButton(
                           onPressed: () {
-                            if (animationController.value == 0) {
-                              animationController.forward();
+                            if (value == 0) {
+                              _animationController.forward();
                             } else {
-                              animationController.reverse();
+                              _animationController.reverse();
                             }
                           },
                           icon: const Icon(

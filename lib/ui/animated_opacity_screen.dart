@@ -10,7 +10,7 @@ class AnimatedOpacityScreen extends StatefulWidget {
 }
 
 class _AnimatedOpacityScreenState extends State<AnimatedOpacityScreen> {
-  double opacityValue = 0.1;
+  double _opacityValue = 0.1;
 
   @override
   Widget build(BuildContext context) {
@@ -19,23 +19,30 @@ class _AnimatedOpacityScreenState extends State<AnimatedOpacityScreen> {
         title: const Text(
           "Animated Opacity",
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              setState(() {
+                _opacityValue = 0.1;
+              });
+            },
+            icon: const Icon(Icons.refresh_rounded),
+          ),
+        ],
       ),
       body: Center(
         child: AnimatedOpacity(
-          opacity: opacityValue,
+          opacity: _opacityValue,
           duration: const Duration(milliseconds: 300),
           child: GestureDetector(
             onTap: () {
               setState(() {
-                opacityValue = 1;
+                _opacityValue = 1;
               });
-              // setState(() {
-              //   opacityValue = opacityValue == 0.1 ? 1 : 0.1;
-              // });
             },
             child: Container(
-              width: 100,
-              height: 100,
+              width: 200,
+              height: 200,
               color: Colors.red,
             ),
           ),
